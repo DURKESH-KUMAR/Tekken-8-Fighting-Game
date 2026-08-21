@@ -15,6 +15,11 @@ public class FightingController : MonoBehaviour
     public float dodgeDistance=2f;
     private float lastAttackTime;
 
+    [Header("Particle Effect")]
+    public ParticleSystem attack1Effect;
+    public ParticleSystem attack2Effect;
+    public ParticleSystem attack3Effect;
+    public ParticleSystem attack4Effect;
     void Awake()
     {
         characterController = GetComponent<CharacterController>();
@@ -91,5 +96,17 @@ public class FightingController : MonoBehaviour
             Vector3 dodgeDirection=transform.forward*dodgeDistance;
             characterController.Move(dodgeDirection);
         }
+    }
+    public void Attack1Effect(){
+        attack1Effect.Play();
+    }
+    public void Attack2Effect(){
+        attack2Effect.Play();
+    }
+    public void Attack3Effect(){
+        attack3Effect.Play();
+    }
+    public void Attack4Effect(){
+        attack4Effect.Play();
     }
 }
