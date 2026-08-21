@@ -97,16 +97,20 @@ public class FightingController : MonoBehaviour
             characterController.Move(dodgeDirection);
         }
     }
-    public void Attack1Effect(){
+    public void Attack1Effect()
+    {
         attack1Effect.Play();
     }
-    public void Attack2Effect(){
+    public void Attack2Effect()
+    {
         attack2Effect.Play();
     }
-    public void Attack3Effect(){
+    public void Attack3Effect()
+    {
         attack3Effect.Play();
     }
-    public void Attack4Effect(){
+    public void Attack4Effect()
+    {
         attack4Effect.Play();
     }
 }
