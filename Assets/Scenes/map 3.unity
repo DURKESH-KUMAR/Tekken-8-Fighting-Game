@@ -20949,6 +20949,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FightingController
   movementSpeed: 1
   rotationSpeed: 10
+  attackCooldown: 0.5
+  attackDamages: 5
+  attackAnimations:
+  - Attack1Animation
+  - Attack2Animation
+  - Attack3Animation
+  - Attack4Animation
+  dodgeDistance: 3
 --- !u!1 &5868665359023700039
 GameObject:
   m_ObjectHideFlags: 0

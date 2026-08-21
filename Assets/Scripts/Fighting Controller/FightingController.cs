@@ -12,7 +12,7 @@ public class FightingController : MonoBehaviour
     public float attackCooldown=0.5f;
     public int attackDamages=5;
     public string[] attackAnimations={"Attack1Animation","Attack2Animation","Attack3Animation","Attack4Animation"};
-    public float dodgedistance=2f;
+    public float dodgeDistance=2f;
     private float lastAttackTime;
 
     void Awake()
@@ -24,6 +24,7 @@ public class FightingController : MonoBehaviour
     void Update()
     {
         PerformMovement();
+        PerformDodgeFront();
         if(Input.GetKeyDown(KeyCode.Alpha1)){
             PerformAttack(0);
         }else if(Input.GetKeyDown(KeyCode.Alpha2)){
@@ -82,6 +83,13 @@ public class FightingController : MonoBehaviour
         {
             Debug.Log("Cannot perform attack yet. Cooldown time remaining.");
 
+        }
+    }
+    void PerformDodgeFront(){
+        if(Input.GetKeyDown(KeyCode.E)){
+            animator.Play("DodgeFrontAnimation");
+            Vector3 dodgeDirection=transform.forward*dodgeDistance;
+            characterController.Move(dodgeDirection);
         }
     }
 }
