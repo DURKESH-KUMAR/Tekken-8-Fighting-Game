@@ -111086,6 +111086,13 @@ MonoBehaviour:
   attack2Effect: {fileID: 855926451928131361}
   attack3Effect: {fileID: 855926451928131361}
   attack4Effect: {fileID: 136217657}
+  hitSounds:
+  - {fileID: 8300000, guid: 5174415e9879415498f7b0dd794d19c5, type: 3}
+  - {fileID: 8300000, guid: 2a295373a10441545bcaf619b61bea94, type: 3}
+  - {fileID: 8300000, guid: 8ba1ce15e8593064aa781b941381f053, type: 3}
+  - {fileID: 8300000, guid: 05d0536a3eefc80438f95f9662331f52, type: 3}
+  maxHealth: 100
+  currentHealth: 0
 --- !u!1 &5868665359023700039
 GameObject:
   m_ObjectHideFlags: 0
@@ -146339,6 +146346,13 @@ MonoBehaviour:
   attack2Effect: {fileID: 3926697240505661032}
   attack3Effect: {fileID: 1218936722}
   attack4Effect: {fileID: 417485659}
+  hitSounds:
+  - {fileID: 8300000, guid: 5174415e9879415498f7b0dd794d19c5, type: 3}
+  - {fileID: 8300000, guid: 2a295373a10441545bcaf619b61bea94, type: 3}
+  - {fileID: 8300000, guid: 8ba1ce15e8593064aa781b941381f053, type: 3}
+  - {fileID: 8300000, guid: 05d0536a3eefc80438f95f9662331f52, type: 3}
+  maxHealth: 100
+  currentHealth: 0
 --- !u!4 &9101301780429104347
 Transform:
   m_ObjectHideFlags: 0

@@ -27,7 +27,14 @@ public class OpponentAI : MonoBehaviour
     public ParticleSystem attack2Effect;
     public ParticleSystem attack3Effect;
     public ParticleSystem attack4Effect;
+
+    public AudioClip[] hitSounds;
+    [Header("Health")]
+    public int maxHealth=100;
+    public int currentHealth;
+
     void Awake() {
+        currentHealth=maxHealth;
         createRandomNumber();
     }
     void Update(){
@@ -76,7 +83,18 @@ public class OpponentAI : MonoBehaviour
     }
     public IEnumerator PlayHitDamageAnimation(int takeDamage){
         yield return new WaitForSeconds(0.5f);
+        if(hitSounds!=null && hitSounds.Length>0){
+            int randomIndex=Random.Range(0,hitSounds.Length);
+            AudioSource.PlayClipAtPoint(hitSounds[randomIndex],transform.position);
+        }
+        currentHealth-=takeDamage;
+        if(currentHealth<=0){
+            Die();
+        }
         animator.Play("HitDamageAnimation");
+    }
+    void Die(){
+        Debug.Log("Opponent Die");
     }
     public void Attack1Effect(){
         attack1Effect.Play();
