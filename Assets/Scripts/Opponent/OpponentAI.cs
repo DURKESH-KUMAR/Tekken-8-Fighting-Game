@@ -39,6 +39,7 @@ public class OpponentAI : MonoBehaviour
                     if(!isTakingDamage){
                         PerformAttack(randomAttackIndex);
                     }
+                    fightingController[i].StartCoroutine(fightingController[i].PlayHitDamageAnimation(attackDamages));
                 }
 
             }
@@ -72,6 +73,10 @@ public class OpponentAI : MonoBehaviour
     }
     void createRandomNumber(){
         randomNumber=Random.Range(1,5);
+    }
+    public IEnumerator PlayHitDamageAnimation(int takeDamage){
+        yield return new WaitForSeconds(0.5f);
+        animator.Play("HitDamageAnimation");
     }
     public void Attack1Effect(){
         attack1Effect.Play();

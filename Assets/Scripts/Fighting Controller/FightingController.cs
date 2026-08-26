@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class FightingController : MonoBehaviour
 {
@@ -13,6 +15,8 @@ public class FightingController : MonoBehaviour
     public int attackDamages=5;
     public string[] attackAnimations={"Attack1Animation","Attack2Animation","Attack3Animation","Attack4Animation"};
     public float dodgeDistance=2f;
+    public float attackRadius=2.2f;
+    public Transform[] opponents;
     private float lastAttackTime;
 
     [Header("Particle Effect")]
@@ -83,6 +87,11 @@ public class FightingController : MonoBehaviour
             int damage=attackDamages;
             Debug.Log("Performed attack "+(attackIndex+1)+" dealing "+damage+"Damage");
             lastAttackTime=Time.time;
+            foreach(Transform opponent in opponents){
+                if(Vector3.Distance(transform.position,opponent.position)<=attackRadius){
+                    opponent.GetComponent<OpponentAI>().StartCoroutine(opponent.GetComponent<OpponentAI>().PlayHitDamageAnimation(attackDamages));
+                }
+            }
         }
         else
         {
@@ -96,6 +105,10 @@ public class FightingController : MonoBehaviour
             Vector3 dodgeDirection=transform.forward*dodgeDistance;
             characterController.Move(dodgeDirection);
         }
+    }
+    public IEnumerator PlayHitDamageAnimation(int takeDamage){
+        yield return new WaitForSeconds(0.5f);
+        animator.Play("HitDamageAnimation");
     }
     public void Attack1Effect()
     {

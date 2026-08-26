@@ -111079,6 +111079,9 @@ MonoBehaviour:
   - Attack3Animation
   - Attack4Animation
   dodgeDistance: 3
+  attackRadius: 2.2
+  opponents:
+  - {fileID: 2929972813577260400}
   attack1Effect: {fileID: 207448121909035140}
   attack2Effect: {fileID: 855926451928131361}
   attack3Effect: {fileID: 855926451928131361}
