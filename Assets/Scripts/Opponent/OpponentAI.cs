@@ -32,9 +32,11 @@ public class OpponentAI : MonoBehaviour
     [Header("Health")]
     public int maxHealth=100;
     public int currentHealth;
+    public HealthBar healthBar;
 
     void Awake() {
         currentHealth=maxHealth;
+        healthBar.GiveFullHealth(currentHealth);
         createRandomNumber();
     }
     void Update(){
@@ -88,6 +90,7 @@ public class OpponentAI : MonoBehaviour
             AudioSource.PlayClipAtPoint(hitSounds[randomIndex],transform.position);
         }
         currentHealth-=takeDamage;
+        healthBar.SetHealth(currentHealth);
         if(currentHealth<=0){
             Die();
         }

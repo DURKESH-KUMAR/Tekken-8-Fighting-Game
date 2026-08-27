@@ -26,13 +26,16 @@ public class FightingController : MonoBehaviour
     public ParticleSystem attack4Effect;
 
     public AudioClip[] hitSounds;
+
     [Header("Health")]
     public int maxHealth=100;
     public int currentHealth;
+    public HealthBar healthBar;
 
     void Awake()
     {
         currentHealth=maxHealth;
+        healthBar.GiveFullHealth(currentHealth);
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
     }
@@ -120,6 +123,7 @@ public class FightingController : MonoBehaviour
             AudioSource.PlayClipAtPoint(hitSounds[randomIndex],transform.position);
         }
         currentHealth-=takeDamage;
+        healthBar.SetHealth(currentHealth);
         if(currentHealth<=0){
             Die();
         }
