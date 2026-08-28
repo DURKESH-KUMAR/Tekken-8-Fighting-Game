@@ -57,7 +57,3 @@ sysinfo.txt
 # Visual Studio Code
 .vscode/
 
-# Git LFS
-*.psd
-*.fbx
-*.blend
